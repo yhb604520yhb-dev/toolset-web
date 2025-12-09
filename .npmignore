@@ -1,0 +1,57 @@
+# 测试文件
+test/
+__tests__/
+*.test.js
+*.test.ts
+*.test.tsx
+*.spec.js
+*.spec.ts
+*.spec.tsx
+**/*.test.*
+**/*.spec.*
+
+# 文档文件
+*.md
+*.markdown
+README*
+CHANGELOG*
+LICENSE*
+HISTORY*
+CONTRIBUTING*
+
+# 源码映射（生产环境不需要）
+*.map
+**/*.map
+
+# 示例和文档目录
+examples/
+example/
+docs/
+doc/
+documentation/
+demo/
+demos/
+
+# 源码目录（如果依赖提供编译后的 dist 目录）
+src/
+source/
+lib/
+libs/
+
+# 配置文件（开发用）
+.eslintrc*
+.prettierrc*
+.editorconfig
+.babelrc*
+tsconfig.json
+jest.config.*
+webpack.config.*
+rollup.config.*
+
+# 其他开发文件
+.vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db
+
