@@ -4,6 +4,7 @@ const path = require('path');
 const openNextDir = path.join(__dirname, '..', '.open-next');
 const workerPath = path.join(openNextDir, 'worker.js');
 const workerRenamedPath = path.join(openNextDir, '_worker.js');
+const assetsDir = path.join(openNextDir, 'assets');
 
 console.log('🔍 Checking OpenNext build output...');
 console.log(`   Build directory: ${openNextDir}`);
@@ -35,6 +36,17 @@ try {
     if (fs.existsSync(workerRenamedPath)) {
       const stats = fs.statSync(workerRenamedPath);
       console.log(`✅ Verified: _worker.js exists (${(stats.size / 1024).toFixed(2)} KB)`);
+      
+      // Check if assets directory exists (static files)
+      if (fs.existsSync(assetsDir)) {
+        const assetStats = fs.statSync(assetsDir);
+        if (assetStats.isDirectory()) {
+          const assetFiles = fs.readdirSync(assetsDir);
+          console.log(`✅ Assets directory found with ${assetFiles.length} items`);
+        }
+      } else {
+        console.warn('⚠️  Assets directory not found - static files may be missing');
+      }
     } else {
       console.error('❌ _worker.js was not created after rename!');
       process.exit(1);
@@ -47,6 +59,8 @@ try {
     // Don't fail - might be a different build structure
     process.exit(0);
   }
+  
+  console.log('✅ Build verification complete');
 } catch (error) {
   console.error('❌ Error renaming worker.js:', error.message);
   console.error(error.stack);
