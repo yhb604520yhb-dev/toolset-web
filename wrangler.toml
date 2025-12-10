@@ -1,6 +1,6 @@
 name = "toolset-web"
 compatibility_date = "2024-01-01"
-pages_build_output_dir = ".opennext"
+pages_build_output_dir = ".open-next"
 
 [env.production]
 compatibility_date = "2024-01-01"

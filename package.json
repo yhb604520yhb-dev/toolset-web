@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "pages:build": "npx @opennextjs/cloudflare build --openNextConfigPath open-next.config.js --skipNextBuild",
-    "preview:cloudflare": "npx wrangler pages dev .opennext",
+    "preview:cloudflare": "npx wrangler pages dev .open-next",
     "deploy:cloudflare": "npm run build && npm run pages:build"
   },
   "dependencies": {
