@@ -1,4 +1,4 @@
-const config = {
+export default {
   default: {
     override: {
       wrapper: "cloudflare-node",
@@ -22,6 +22,4 @@ const config = {
     },
   },
 };
-
-export default config;
 
