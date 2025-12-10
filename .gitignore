@@ -1,36 +1,88 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
+# 依赖
+node_modules/
 /.pnp
 .pnp.js
 .yarn/install-state.gz
 
-# testing
+# 测试
 /coverage
 
-# next.js
+# Next.js
 /.next/
 /out/
+.next
+.next/
 
-# production
+# 生产构建输出
 /build
+/dist
+.vercel
 
-# misc
-.DS_Store
-*.pem
+# 环境变量和敏感信息
+.env
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# debug
+# 日志文件
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# local env files
-.env*.local
+# 系统文件
+.DS_Store
+*.pem
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# vercel
-.vercel
-
-# typescript
+# TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# 临时文件
+*.tmp
+*.temp
+.cache/
+.turbo/
+
+# 本地开发脚本（开发时使用，可选推送）
+# fix-and-start.bat
+# fix-and-start.ps1
+# quick-start.bat
+# quick-start.ps1
+# check-and-fix.ps1
+# test-cloudflare-build.ps1
+# test-cloudflare-build.sh
+
+# 部署脚本保留（scripts/deploy*.js, deploy.ps1, scripts/git-push.ps1 应该推送）
+
+# 文档和开发说明（可选，根据需求决定是否推送）
+# 如果需要保留文档，可以注释掉下面几行
+# DEPLOY-STEPS.md
+# WINDOWS-DEPLOYMENT.md
+# DIRECTORY_REORGANIZATION.md
+# OPTIMIZATION.md
+# PROJECT_STRUCTURE.md
+# project-core.md
+# README-START.md
+# python_example.py
+
+# Cursor/Specstory 相关（开发工具生成的文件）
+.specstory/
+.cursor/
+
+# 其他
+.editorconfig
+*.local
