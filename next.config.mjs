@@ -80,7 +80,14 @@ const nextConfig = {
   // 实验性功能：优化包大小
   experimental: {
     optimizePackageImports: ['react', 'react-dom'],
+    // 禁用 serverActions，可能避免使用 async_hooks
+    serverActions: {
+      bodySizeLimit: '2mb',
+    },
   },
+  
+  // 尝试禁用某些可能导致使用 async_hooks 的功能
+  serverExternalPackages: ['@next/request-context'],
 };
 
 export default nextConfig;
