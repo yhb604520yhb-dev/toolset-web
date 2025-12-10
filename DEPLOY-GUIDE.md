@@ -77,10 +77,12 @@ npm run preview:cloudflare
    - 选择 GitHub → 选择仓库
 
 2. **配置构建设置**
-   - **构建命令**: `npm install --legacy-peer-deps && npm run build && npx @cloudflare/next-on-pages`
+   - **构建命令**: `npm install --legacy-peer-deps && npm run build && npx @cloudflare/next-on-pages --disable-worker-minification`
    - **构建输出目录**: `.vercel/output/static`
    - **根目录**: `/`
    - **Node.js 版本**: `20.x` 或 `22.x`
+   
+   > **注意**: 如果遇到 `async_hooks` 错误，构建命令中已添加 `--disable-worker-minification` 选项以绕过该问题
 
 3. **添加环境变量**
    ```
