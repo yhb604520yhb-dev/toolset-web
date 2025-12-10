@@ -19,6 +19,26 @@ const nextConfig = {
   
   // 代码分割和按需加载优化
   webpack: (config, { isServer }) => {
+    // 处理 Node.js 内置模块（用于 Cloudflare Pages 兼容）
+    if (isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        'async_hooks': false,
+        'fs': false,
+        'net': false,
+        'tls': false,
+        'crypto': false,
+        'stream': false,
+        'url': false,
+        'zlib': false,
+        'http': false,
+        'https': false,
+        'assert': false,
+        'os': false,
+        'path': false,
+      };
+    }
+    
     // 生产环境优化
     if (!isServer) {
       // 代码分割：将大型依赖拆分为独立 chunk
