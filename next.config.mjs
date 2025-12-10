@@ -20,7 +20,7 @@ const nextConfig = {
   reactStrictMode: true,
   
   // 确保输出正确（@cloudflare/next-on-pages 需要）
-  output: undefined, // 不强制 output，让适配器处理
+  // output 不设置，让 @cloudflare/next-on-pages 自动处理
   
   // 代码分割和按需加载优化
   webpack: (config, { isServer }) => {
