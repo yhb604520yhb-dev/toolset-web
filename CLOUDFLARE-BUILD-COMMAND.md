@@ -25,10 +25,9 @@ npm install --legacy-peer-deps && npm run build && npx @cloudflare/next-on-pages
    npm install --legacy-peer-deps && npm run build && npx @cloudflare/next-on-pages --disable-worker-minification
    ```
 
-4. **确保输出目录为**：
-   ```
-   .vercel/output/static
-   ```
+4. **输出目录（自动读取）**：
+   - ✅ 已在 `wrangler.toml` 中配置：`.vercel/output/static`
+   - ✅ Cloudflare 会自动从 `wrangler.toml` 读取，无需在 Dashboard 中设置
 
 5. **保存并重新部署**
    - 点击 **"保存"**
