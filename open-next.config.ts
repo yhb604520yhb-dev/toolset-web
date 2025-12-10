@@ -1,11 +1,24 @@
-import { defineConfig } from "@opennextjs/cloudflare";
-
-export default defineConfig({
+export default {
   default: {
-    wrapper: "cloudflare-node",
-    converter: "edge",
-    incrementalCache: "dummy",
-    tagCache: "dummy",
+    override: {
+      wrapper: "cloudflare-node",
+      converter: "edge",
+      proxyExternalRequest: "fetch",
+      incrementalCache: "dummy",
+      tagCache: "dummy",
+      queue: "dummy",
+    },
   },
-});
+  middleware: {
+    external: true,
+    override: {
+      wrapper: "cloudflare-edge",
+      converter: "edge",
+      proxyExternalRequest: "fetch",
+      incrementalCache: "dummy",
+      tagCache: "dummy",
+      queue: "dummy",
+    },
+  },
+};
 
