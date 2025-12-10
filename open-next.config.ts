@@ -1,5 +1,13 @@
 // OpenNext Cloudflare 配置文件
-// 最简单的配置，使用默认设置
-
-export default {};
+export default {
+  default: {
+    override: {
+      wrapper: "cloudflare-node",
+      converter: "aws-apigw-v2",
+      incrementalCache: "s3-lite",
+      queue: "sqs-lite",
+      tagCache: "dummy",
+    },
+  },
+};
 
