@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// 兼容 Edge Runtime 和 Node.js Runtime
-export const runtime = 'edge';
+// 使用 Node.js Runtime（OpenNext 会在 Cloudflare 中处理）
+// export const runtime = 'edge';
 
 /**
  * 上传图片到图床（将base64转换为URL）

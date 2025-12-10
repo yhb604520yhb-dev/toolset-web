@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 
-export const runtime = 'edge';
+// 使用 Node.js Runtime（OpenNext 会在 Cloudflare 中处理）
+// export const runtime = 'edge';
 
 export async function GET(request: Request) {
   // 从 public 目录获取 favicon.ico
