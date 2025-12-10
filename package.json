@@ -7,25 +7,25 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "npx @cloudflare/next-on-pages --disable-worker-minification",
-    "preview:cloudflare": "npx wrangler pages dev .vercel/output/static",
+    "pages:build": "npx @opennextjs/cloudflare build",
+    "preview:cloudflare": "npx wrangler pages dev .opennext",
     "deploy:cloudflare": "npm run build && npm run pages:build"
   },
   "dependencies": {
+    "next": "^14.2.33",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "next": "^14.2.33"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "typescript": "^5.6.3",
+    "@opennextjs/cloudflare": "^1.14.4",
     "@types/node": "^20.16.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.15",
     "eslint": "^8.57.1",
     "eslint-config-next": "14.2.33",
-    "@cloudflare/next-on-pages": "1.12.1"
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.6.3"
   },
   "engines": {
     "node": ">=18.0.0",
