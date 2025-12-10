@@ -13,9 +13,8 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   
-  // Cloudflare Pages 兼容：使用 OpenNext Cloudflare 适配器
-  // 本地开发时使用默认配置，Cloudflare 部署时通过 @opennextjs/cloudflare 适配
-  output: 'standalone', // OpenNext 需要 standalone 输出模式
+  // Cloudflare Pages 兼容：使用 @cloudflare/next-on-pages 适配器
+  // 本地开发时使用默认配置，Cloudflare 部署时通过 @cloudflare/next-on-pages 适配
   
   // 代码分割和按需加载优化
   webpack: (config, { isServer }) => {

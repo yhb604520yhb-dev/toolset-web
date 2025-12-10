@@ -190,7 +190,7 @@ export default function SoraPage() {
     const reader = new FileReader();
     reader.onload = (ev) => {
       if (isMountedRef.current) {
-        setRefImage(ev.target?.result as string);
+      setRefImage(ev.target?.result as string);
       }
     };
     reader.readAsDataURL(file);
@@ -346,7 +346,7 @@ export default function SoraPage() {
     }
 
     if (!isMountedRef.current) return;
-    
+
     setIsExtractModalOpen(false);
     setExtractingCharacterId(taskId);
     console.log('🎭 开始提取角色...');
@@ -486,7 +486,7 @@ export default function SoraPage() {
           });
           
           if (isMountedRef.current) {
-            setExtractingCharacterId(null);
+          setExtractingCharacterId(null);
           }
           return;
         } catch (error: any) {
@@ -606,7 +606,7 @@ export default function SoraPage() {
                 });
                 
                 if (isMountedRef.current) {
-                  setExtractingCharacterId(null);
+                setExtractingCharacterId(null);
                 }
                 return;
               } else if (line1Result.status === 'completed' || line1Result.status === 'succeeded') {
@@ -683,7 +683,7 @@ export default function SoraPage() {
                     });
                     
                     if (isMountedRef.current) {
-                      setExtractingCharacterId(null);
+                    setExtractingCharacterId(null);
                     }
                     return;
                   }
@@ -701,34 +701,34 @@ export default function SoraPage() {
               // 线路1重试也失败，更新任务状态为失败
               console.error('❌ 线路1重试也失败:', retryError);
               if (isMountedRef.current) {
-                setCharacterTasks((prev) => {
-                  if (!isMountedRef.current) return prev;
-                  const updated = prev.map((task) =>
-                    task.id === tempTaskId
-                      ? { ...task, status: 'failed', error: `线路2超时，线路1重试也失败: ${retryError.message || retryError.toString()}` }
-                      : task
-                  );
-                  saveCharacterTasks(updated);
-                  return updated;
-                });
-                setExtractingCharacterId(null);
-              }
-              throw new Error(`线路2超时，线路1重试也失败: ${retryError.message || retryError.toString()}`);
-            }
-          } else {
-            // 非超时错误，直接失败
-            if (isMountedRef.current) {
               setCharacterTasks((prev) => {
-                if (!isMountedRef.current) return prev;
+                  if (!isMountedRef.current) return prev;
                 const updated = prev.map((task) =>
                   task.id === tempTaskId
-                    ? { ...task, status: 'failed', error: error.message || error.toString() || '创建角色失败' }
+                    ? { ...task, status: 'failed', error: `线路2超时，线路1重试也失败: ${retryError.message || retryError.toString()}` }
                     : task
                 );
                 saveCharacterTasks(updated);
                 return updated;
               });
               setExtractingCharacterId(null);
+              }
+              throw new Error(`线路2超时，线路1重试也失败: ${retryError.message || retryError.toString()}`);
+            }
+          } else {
+            // 非超时错误，直接失败
+            if (isMountedRef.current) {
+            setCharacterTasks((prev) => {
+                if (!isMountedRef.current) return prev;
+              const updated = prev.map((task) =>
+                task.id === tempTaskId
+                  ? { ...task, status: 'failed', error: error.message || error.toString() || '创建角色失败' }
+                  : task
+              );
+              saveCharacterTasks(updated);
+              return updated;
+            });
+            setExtractingCharacterId(null);
             }
             throw new Error(error.message || `创建角色失败: ${error.toString()}`);
           }
@@ -1651,7 +1651,7 @@ export default function SoraPage() {
     }
 
     if (!isMountedRef.current) return;
-    
+
     setIsGenerating(true);
 
     try {
@@ -1690,7 +1690,7 @@ export default function SoraPage() {
             console.error('❌ 角色URL为空，无法使用角色生成视频');
             alert('角色视频URL为空，无法使用该角色生成视频。请重新提取角色。');
             if (isMountedRef.current) {
-              setIsGenerating(false);
+            setIsGenerating(false);
             }
             return;
           }
@@ -1820,7 +1820,7 @@ export default function SoraPage() {
       };
 
       if (!isMountedRef.current) return;
-      
+
       setVideoTasks((prev) => {
         if (!isMountedRef.current) return prev;
         const updated = [newTask, ...prev];
@@ -1838,8 +1838,8 @@ export default function SoraPage() {
       alert(error.message || '生成视频失败，请重试');
     } finally {
       if (isMountedRef.current) {
-        setIsGenerating(false);
-      }
+      setIsGenerating(false);
+    }
     }
   };
 
