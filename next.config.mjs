@@ -19,6 +19,9 @@ const nextConfig = {
   // 确保客户端 JavaScript 正确打包
   reactStrictMode: true,
   
+  // 确保输出正确（@cloudflare/next-on-pages 需要）
+  output: undefined, // 不强制 output，让适配器处理
+  
   // 代码分割和按需加载优化
   webpack: (config, { isServer }) => {
     // 处理 Node.js 内置模块（用于 Cloudflare Pages 兼容）
