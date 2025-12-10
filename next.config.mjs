@@ -16,6 +16,9 @@ const nextConfig = {
   // Cloudflare Pages 兼容：使用 @cloudflare/next-on-pages 适配器
   // 本地开发时使用默认配置，Cloudflare 部署时通过 @cloudflare/next-on-pages 适配
   
+  // 确保客户端 JavaScript 正确打包
+  reactStrictMode: true,
+  
   // 代码分割和按需加载优化
   webpack: (config, { isServer }) => {
     // 处理 Node.js 内置模块（用于 Cloudflare Pages 兼容）
