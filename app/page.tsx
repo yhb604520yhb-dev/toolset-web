@@ -111,10 +111,10 @@ export default function Home() {
 
   return (
     <div className={`min-h-screen flex flex-col ${bgClass} transition-colors duration-300 font-[family-name:var(--font-geist-sans)]`}>
-      <div className="flex flex-col sticky top-0 z-40">
-        <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white text-xs md:text-sm py-2 px-4 text-center font-medium shadow-md">
-          本工具所有的操作执行都在本地浏览器端，无需上传任何个人数据到服务器~
-        </div>
+        <div className="flex flex-col sticky top-0 z-40">
+          <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white text-xs md:text-sm py-2 px-4 text-center font-medium shadow-md">
+            本工具所有的操作执行都在本地浏览器端，无需上传任何个人数据到服务器~
+          </div>
         <header className={`h-16 border-b flex items-center justify-between px-6 ${headerBgClass} backdrop-blur-md transition-colors duration-300`}>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center shadow-lg bg-gradient-to-br from-indigo-500 to-purple-600 shadow-indigo-500/20">
@@ -336,14 +336,14 @@ export default function Home() {
             ))}
             <div className="flex flex-col items-center justify-center text-center space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
               <div className={`p-2 ${qrBgClass} rounded-xl shadow-lg border`}>
-                <img
+              <img
                   src="/images/wechat-qr.png"
-                  alt="WeChat QR Code"
-                  className="w-48 h-48 object-contain rounded-lg"
-                />
-              </div>
+                alt="WeChat QR Code"
+                className="w-48 h-48 object-contain rounded-lg"
+              />
+            </div>
               <div className={`space-y-1 ${mutedTextClass}`}>
-                <p className="font-medium">如果您发现BUG或者有建议，欢迎加群反馈</p>
+              <p className="font-medium">如果您发现BUG或者有建议，欢迎加群反馈</p>
                 <p className="text-sm">或者添加我的微信：yhb5151604</p>
               </div>
             </div>
@@ -352,7 +352,7 @@ export default function Home() {
 
         <footer className={`py-6 text-center text-sm border-t backdrop-blur ${footerClass}`}>
           © 2025 NexusGen Controller. All rights reserved.
-        </footer>
+      </footer>
     </div>
   );
 }
